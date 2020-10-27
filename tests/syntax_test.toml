@@ -1,0 +1,67 @@
+# SYNTAX TEST "Packages/TOML/TOML.sublime-syntax"
+
+  [yo.this.is.a.header]
+# ^ source.toml entity.name.section.toml
+#   ^ source.toml entity.name.tag.toml
+
+  a = 10
+# ^ source.toml entity.name.variable.toml
+#   ^ source.toml keyword.operator.assignment.toml
+#     ^ source.toml meta.number.integer.decimal.toml constant.numeric.value.toml
+
+f = -10.5
+#    ^ source.toml meta.number.integer.decimal.toml constant.numeric.value.toml
+#      ^ source.toml meta.number.float.decimal.toml constant.numeric.value.toml
+
+q = "x"
+#    ^ source.toml string.quoted.double.toml
+
+x = ["foo", 10
+#   ^ source.toml meta.sequence.toml punctuation.section.sequence.begin.toml
+#    ^ source.toml meta.sequence.toml string.quoted.double.toml
+      [true]
+#       ^ source.toml meta.sequence.toml meta.sequence.toml constant.language.boolean.toml      
+    ]
+
+  ok= 5
+# ^ source.toml entity.name.variable.toml
+#   ^ source.toml keyword.operator.assignment.toml
+#     ^ source.toml meta.number.integer.decimal.toml constant.numeric.value.toml
+  ok=5
+# ^ source.toml entity.name.variable.toml
+#   ^ source.toml keyword.operator.assignment.toml
+#    ^ source.toml meta.number.integer.decimal.toml constant.numeric.value.toml  
+  ok =5
+# ^ source.toml entity.name.variable.toml
+#    ^ source.toml keyword.operator.assignment.toml
+#     ^ source.toml meta.number.integer.decimal.toml constant.numeric.value.toml  
+
+s = 'y\'o'
+#    ^ source.toml string.quoted.single.toml
+s = "\""
+#    ^ source.toml string.quoted.double.toml
+
+q = '''
+    sup
+    '''
+#    ^ source.toml string.quoted.double.raw.toml puncutation.definition.string.raw.end.toml
+
+q = """
+    sup
+    """
+#    ^ source.toml string.quoted.double.raw.toml puncutation.definition.string.raw.end.toml
+
+z = "Not # comment = "
+#    ^ source.toml string.quoted.double.toml
+
+d = {
+	 x= 10,
+	 "y" =10,
+	 'y' = "asdf",
+	 a = [5],
+	 b = {
+	 	    c = "d"
+#             ^ source.toml meta.mapping.value.toml meta.mapping.toml
+	     }
+     }
+#    ^ source.toml meta.mapping.toml punctuation.section.mapping.end.toml
